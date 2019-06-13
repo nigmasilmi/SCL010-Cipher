@@ -46,6 +46,8 @@ Diseño de experiencia de usuario (User Experience Design):
 Por redactar
 - Ideación
 - Prototipado (sketching)
+
+<img src="https://raw.githubusercontent.com/nigmasilmi/SCL010-Cipher/master/src/imgs/caesarCipher_Prototipado1-01.jpg" alt="Wireframe con iteraciones de desarrollo propuestas">
 - Testeo e Iteración
 
 Desarrollo Front-end:
