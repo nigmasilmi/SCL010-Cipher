@@ -29,13 +29,12 @@ window.cipher = {
     return(textoCifrado);   
     
   },
-  
+
   decode: (historiaCifrada, toAddNumber) => {
    //creamos una variable donde alojar el texto descifrado
     let textoRevertido = '';
    //tomamos el texto cifrado, lo recorremos y revertimos el valor ascii
     for(let i=0; i<historiaCifrada.length; i++){
-        console.log('historiaCifrada['+ i + ']' + historiaCifrada[i]);
          //extraemos el valor ascii de cada caracter cifrado
         let valorCifrado =  historiaCifrada.charCodeAt(i);
         //revertimos el valor restando el offset sumado
