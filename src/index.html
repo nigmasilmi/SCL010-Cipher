@@ -16,15 +16,31 @@
       </ul>
   </nav>
   <div id="root">
-    <h1>Hola mundo!</h1>
+    
   </div>
   <label for="textoACifrar">Historia</label>
-    <div id="textoACifrar" class="frames"></div>
+    <div id="textoACifrar" class="frames">
+      
+          <label for="mensajeInputId">Ingresa tu propia historia</label>
+          <textarea rows="4" cols="50" name="mensajeIngresado" id="mensajeInputId"></textarea><br/>
+          <label for="offsetInput">Ingresa el número secreto para tu cifrado</label>
+          <input type="number" id="offsetInput">
+          <button onclick="ejecutaCifrado()">Cifrar</button>
+          <button onclick="limpiar()">Limpiar</button>
+   
+    </div>
+    
     <label for="textoCifrado">Historia Cifrada</label>
     <div id="textoCifrado" class="frames">
     </div>
-    
+    <button onclick="ejecutaDescifrado()">Descifrar</button>
+
+    <label for="textoDescifrado">Historia Descifrada</label>
+    <div id="textoDescifrado" class="frames">
+    </div>
+
     <script src="cipher.js"></script>
     <script src="index.js"></script>
+    
   </body>
 </html>

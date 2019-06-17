@@ -1,9 +1,10 @@
 window.cipher = {
   encode: (offset, string) => {
-    const textoACifrar = string;
-    const toAddNumberInput = offset ;
+    let textoACifrar = string;
+
+    let toAddNumberInput = offset ;
     //verificar si es viable usar let
-    var toAddNumber = null;
+    let toAddNumber = null;
     /* Vamos a generar un número entre 1 y 25 ya que el rango A-Z son 26 números (ascii 065-090)
     tomando como argumento el valor del offset que ingrese el usuario
     si el valor que ingresa el usuario está entre 1 y 25 */
@@ -25,8 +26,10 @@ window.cipher = {
         //ciframos el código ascii, lo parseamos a String y lo concatenamos con la cadena textoCifrado
         textoCifrado += String.fromCharCode(textoACifrar.charCodeAt([i])+toAddNumber);
         
-    }   
-    return(textoCifrado);   
+    }  
+    console.log('esto es textoCifrado proveniente de la función encode:  ' + textoCifrado);
+    return textoCifrado; 
+     
     
   },
 

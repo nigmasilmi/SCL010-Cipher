@@ -27,6 +27,10 @@ label{
     font-size: 1.3em;
 
 }
+textarea{
+    background-color: #253031;
+    color: #f6f7eb;
+}
 
 body{
     font-family: 'Merriweather', serif;
@@ -60,5 +64,14 @@ body{
     background-color: #253031;
     padding: 2%;
     margin: 1% auto;
+
+}
+
+@media screen and (min-width:371px) and (max-width:575px) {
+   body{
+    background-color: red; 
+   }
+    
+
 
 }
