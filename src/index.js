@@ -1,49 +1,66 @@
-"use strict";
+
+let aCifrar = '';
+let offset = '';
 let cifrado = '';
+let aDescifrar = '';
 let descifrado = '';
-let string = '';
-let offsetInput = '';
+
+
 
 
   const ejecutaCifrado = () =>{
-     
-        document.getElementById('textoCifrado').innerHTML = '';
-        //rescatamos el valor del input ingresado por el usuario y lo asignamos a la variable string
-        string = document.getElementById('mensajeInputId').value;
-        console.log('esto es string: ' + string);
-        //rescatamos el valor del offset seleccionado por el usuario y lo asignamos a la variable
-        offsetInput = parseInt(document.getElementById('offsetInput').value);
-        console.log('esto es offsetInput: ' + offsetInput);
-        cifrado = cipher.encode(offsetInput, string);
-        console.log("esto es cifrado: " + cifrado); 
-        console.log('esto es lo que está en el id textoCifrado antes de jugar con su inner: (' + document.getElementById('textoCifrado').innerHTML + ')');
+        'use strict';
+        //toma el texto que ingresa el usuario
+        aCifrar = document.getElementById('mensajeInputId').value;
+        //probamos que lo esté trayendo
+        console.log('esto es el texto que viene del input del usuario ' + '[' + aCifrar + ']');
+        //toma el valor del offset que escogió el usuario
+        offset = parseInt(document.getElementById('offsetInput').value);
+        //probamos que lo esté trayendo
+        console.log('esto es el valor del offset que ha escogido el usuario: ' + '[' + offset + ']');
+        //ejecutamos la funcion encode con los valores ingresados y escogidos
+        cifrado = window.cipher.encode(offset, aCifrar);
+        //convertimos el valor cifrado a ser el innerHTML del espacio destinado para ello
         document.getElementById('textoCifrado').innerHTML = cifrado;
-        
+        return aCifrar;
     };
 
 
     const limpiar = ()=>{
-        console.log('comenzando a limpiar');
+        //renueva el innerHTML de los campos de input
         document.getElementById('mensajeInputId').value = '';
-        console.log(typeof(document.getElementById('mensajeInputId').value));
+        //y además reinicia la variable contenida en cifrado
+        aCifrar = '';
+        //renueva el innerHTML del campo donde se muestra el resultado del cifrado
         document.getElementById('textoCifrado').innerHTML = '';
-        document.getElementById('textoDescifrado').innerHTML = '';
+        //y además reinicia la variable contenida en cifrado
+        cifrado = '';
+        //probamos que lo esté haciendo
+        console.log('esto es el texto que está alojado ahora en la variable aCifrar ' + '[' + aCifrar + ']');
 
     };
 
     let ejecutaDescifrado = () =>{
-     
-        document.getElementById('textoDescifrado').innerHTML = '';
-        //rescatamos el valor cifrado
-        string = document.getElementById('textoCifrado').value;
-        console.log('esto es string: ' + string);
-        //rescatamos el valor del offset alojado en la variable global offsetInput
-        console.log('esto es offsetInput: ' + offsetInput);
-        descifrado = cipher.decode(offsetInput, string);
-        console.log("esto es descifrado: " + descifrado); 
-        console.log('esto es lo que está en el id textoCifrado antes de jugar con su inner: (' + document.getElementById('textoCifrado').innerHTML + ')');
-        document.getElementById('textoDescifrado').innerHTML = descifrado;
-        
+          /*condicionamos qué hacer si el valor a decodificar ya fue ingresado previamente a)) o si ha sido ingresado
+  recientemente por el usuario b))*/
+  //a))
+        if(aCifrar){
+         //tomamos el texto cifrado
+            aDescifrar = document.getElementById('textoCifrado').value;
+         //tomamos el valor del offset vigente
+            offset = parseInt(document.getElementById('offsetInput').value);
+         //ejecutamos la función decode con los valores offset y aDescifrar
+            descifrado = window.cipher.decode(aDescifrar, offset);
+         //renueva el innerHTML del campo donde se muestra el resultado del descifrado
+             document.getElementById('textoDescifrado').innerHTML = descifrado ;
+         }else{
+             //tomamos el valor en el campo de descifrar
+             let aDescifrarIngresado = document.getElementById('textoDescifrado').innerHTML;
+             //ejecutamos la función decode con los argumentos correspondientes
+             descifrado = window.cipher.decode(aDescifrarIngresado, offset);
+             
+         }
+        return aDescifrar;
     };
 
 

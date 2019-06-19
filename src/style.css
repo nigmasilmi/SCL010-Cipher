@@ -28,6 +28,7 @@ label{
 
 }
 textarea{
+    width: 40vw;
     background-color: #253031;
     color: #f6f7eb;
 }
@@ -55,6 +56,28 @@ body{
     justify-items: space-around;
 }
 
+button{
+    display: block;
+    background-color:#a31621;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    border: 2px solid #f6f7eb;
+    padding: 1%;
+    margin: 1% auto;
+    text-align: center;
+    width: 20%;
+
+}
+
+input[type='number'] {
+    border: none;
+    background-color: #2978a0;
+    font-family: 'Cinzel', serif;
+    color: #f6f7eb; 
+    width: 40%;
+    height: 30px;
+  }
+
 .frames{
     display: block;
     text-align: center;
@@ -69,9 +92,16 @@ body{
 
 @media screen and (min-width:371px) and (max-width:575px) {
    body{
-    background-color: red; 
+    background-color:#a31621;
    }
     
+ label{
+    margin-right: 0 auto;
+    display: block;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 1.3em;
 
+}
 
 }

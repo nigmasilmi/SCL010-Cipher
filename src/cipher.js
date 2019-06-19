@@ -1,6 +1,8 @@
 window.cipher = {
   encode: (offset, string) => {
     let textoACifrar = string;
+    let textoCifrado = '';
+    let toAddNumber2 = null;
 
     let toAddNumberInput = offset ;
     //verificar si es viable usar let
@@ -15,16 +17,18 @@ window.cipher = {
     }
     if(toAddNumber >= 25){
        do{
-        var toAddNumber2 = Math.floor(toAddNumber / 25 + offset % 25);   
+        toAddNumber2 = Math.floor(toAddNumber / 25 + offset % 25);   
        }while ( (!toAddNumber2 >=1) && (!toAddNumber2 <=25));
        //cuando salga del while, es decir que ya nuestra condición se cumpla, la asignamos a la variable toAddNumber
         toAddNumber = toAddNumber2;
     }
   
     //recorremos el texto y a cada caracter,
-    for(let i=0; i<textoACifrar.length; i++){
+    console.log('esto es aDescifrar' + aDescifrar);
+    console.log(string);
+    for(let i=0; i<string.length; i++){
         //ciframos el código ascii, lo parseamos a String y lo concatenamos con la cadena textoCifrado
-        textoCifrado += String.fromCharCode(textoACifrar.charCodeAt([i])+toAddNumber);
+        textoCifrado += String.fromCharCode(string.charCodeAt([i])+toAddNumber);
         
     }  
     console.log('esto es textoCifrado proveniente de la función encode:  ' + textoCifrado);
@@ -33,13 +37,18 @@ window.cipher = {
     
   },
 
-  decode: (historiaCifrada, toAddNumber) => {
-   //creamos una variable donde alojar el texto descifrado
+
+
+  decode: (aDecodificar, toAddNumber) => {
+   //rescatamos el valor de textoCifrado
+   let historiaCifrada = aDecodificar;
+   console.log('entra a la funcion decode');
     let textoRevertido = '';
    //tomamos el texto cifrado, lo recorremos y revertimos el valor ascii
+   console.log('esto es la historia cifrada que viene' + '[' + historiaCifrada + ']');
     for(let i=0; i<historiaCifrada.length; i++){
          //extraemos el valor ascii de cada caracter cifrado
-        let valorCifrado =  historiaCifrada.charCodeAt(i);
+        valorCifrado =  historiaCifrada.charCodeAt(i);
         //revertimos el valor restando el offset sumado
         let valorCifradoRevertido = historiaCifrada.charCodeAt(i)-toAddNumber;
         //convertimos ese valor ascii en el caracter correspondiente

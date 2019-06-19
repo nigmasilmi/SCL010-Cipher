@@ -1,5 +1,9 @@
+//describe es a quien yo quiero testear con una funcion que describe lo que se va a testear
+
 describe('cipher', () => {
 
+  // el it recibe lo que se va a testear en específico
+  //se testea primero siempre si es un objeto, cuando estamos trabajando con estructura de objetos
   it('debería ser un objeto', () => {
     assert.equal(typeof cipher, 'object');
   });
