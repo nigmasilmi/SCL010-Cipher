@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Master RPG - Caesar Cipher Project</title>
-    <link href="https://fonts.googleapis.com/css?family=Cinzel|Merriweather|Nunito&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Master RPG - Caesar Cipher Project</title>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Merriweather|Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="root">
     <nav class="navega">
       <ul>
-          <li>Inicio</li>
-          <li>Crear Historia</li>
-          <li>Escoger Historia</li>
-          
+        <li>Inicio</li>
+        <li>Crear Historia</li>
+        <li>Escoger Historia</li>
+
       </ul>
-  </nav>
-  <div id="root">
-    
-  </div>
-  <label for="textoACifrar">Historia</label>
-    <div id="textoACifrar" class="frames">
-      
-          <label for="mensajeInputId">Ingresa tu propia historia</label>
-          <textarea rows="4" cols="50" name="mensajeIngresado" id="mensajeInputId"></textarea><br/>
-          <label for="offsetInput">Ingresa el número secreto para tu cifrado</label>
-          <input type="number" id="offsetInput">
-          <button onclick="ejecutaCifrado()">Cifrar</button>
-          <button onclick="limpiar()">Limpiar</button>
-   
+
+    </nav>
+    <div id="logo">
+      <img src="imgs/TheMasterTool_Logo.png" alt="The Master Tool - Logo">
     </div>
-    
+
+    <label for="textoACifrar">Historia</label>
+    <div id="textoACifrar" class="frames">
+
+      <label for="mensajeInputId">Ingresa tu propia historia</label>
+      <textarea rows="4" cols="50" name="mensajeIngresado" id="mensajeInputId"></textarea><br />
+      <label for="offsetInput">Ingresa el número secreto para tu cifrado</label>
+      <input type="number" id="offsetInput">
+      <button id="ejecutaCifrado">Cifrar</button>
+      <button id="limpiar">Limpiar</button>
+
+    </div>
+
     <label for="textoCifrado">Historia Cifrada</label>
-    <textarea  rows="4" cols="50" name="mensajeCifrado" id="textoCifrado" class="frames"></textarea>
-    <button onclick="ejecutaDescifrado()">Descifrar</button>
+    <textarea rows="4" cols="50" name="mensajeCifrado" id="textoCifrado" class="frames"></textarea>
+    <button id="ejecutaDescifrado">Descifrar</button>
 
     <label for="textoDescifrado">Historia Descifrada</label>
-    <textarea  rows="4" cols="50" name="mensajeDescifrado" id="textoDescifrado" class="frames"></textarea>
-    </div>
+    <textarea rows="4" cols="50" name="mensajeDescifrado" id="textoDescifrado" class="frames" readonly></textarea>
+  </div>
+  </div>
+  <script src="index.js"></script>
+  <script src="cipher.js"></script>
 
-    <script src="cipher.js"></script>
-    <script src="index.js"></script>
-    
-  </body>
+
+</body>
+
 </html>

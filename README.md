@@ -65,8 +65,8 @@ Tareas completadas
 * [ ] `README.md` explica claramente cómo el producto soluciona los
   problemas/necesidades de los usuarios.
 * [ ] Usa VanillaJS.
-* [ ] No utiliza `this`.
-* [ ] Implementa `cipher.encode`.
+* [X] No utiliza `this`.
+* [X] Implementa `cipher.encode`.
 * [ ] Implementa `cipher.decode`.
 * [ ] Pasa linter con configuración provista.
 * [ ] Pasa pruebas unitarias.

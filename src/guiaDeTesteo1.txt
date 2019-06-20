@@ -1,0 +1,9 @@
+1. cómo se enfrenta el usuario a la app
+    tarea específica para ejecutar
+
+2. que espera, que entiende por lo que tiene enfrente
+    que colabore vocalizando la interaccion
+
+3. que interactúe y genere feedback
+
+4. como reacciona ante el menu que no es funcional aún
