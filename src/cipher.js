@@ -1,58 +1,40 @@
 window.cipher = {
   encode: (offset, string) => {
-    let textoCifrado = '';
-    let toAddNumber2 = null;
-    let toAddNumberInput = offset;
-    //verificar si es viable usar let
-    let toAddNumber = null;
-    /* Vamos a generar un número entre 1 y 25 ya que el rango A-Z son 26 números (ascii 065-090)
-    tomando como argumento el valor del offset que ingrese el usuario
-    si el valor que ingresa el usuario está entre 1 y 25 */
-    if (toAddNumberInput >= 1 && toAddNumberInput <= 25) {
-      toAddNumber = toAddNumberInput;
-    } else {
-      toAddNumber = Math.floor(toAddNumberInput / 25 + toAddNumberInput % 25);
+
+    let offsetInput = offset;
+    //convertimos el offset en un número entero
+    offsetInput = parseInt(offsetInput);
+
+    /*obtenemos los valores ascii del string rescatado desde el DOM ingresado previamente por el usuario
+     almacenándolo en un array*/
+
+    let strInputInAscii = [];
+    for (let k = 0; k < string.length; k++) {
+      strInputInAscii.push(string.charCodeAt(k));
     }
-    if (toAddNumber >= 25) {
-      do {
-        toAddNumber2 = Math.floor(toAddNumber / 25 + offset % 25);
-      } while ((!toAddNumber2 >= 1) && (!toAddNumber2 <= 25));
-      //cuando salga del while, es decir que ya nuestra condición se cumpla, la asignamos a la variable toAddNumber
-      toAddNumber = toAddNumber2;
+    /* aplicamos la ecuación del cifrado César para codificar cada caracter */
+    let encodedPhrase = '';
+    let encodedAscii = '';
+    for (let m = 0; m < strInputInAscii.length; m++) {
+      encodedAscii = (strInputInAscii[m] - 65 + offsetInput) % 26 + 65;
+      encodedPhrase += String.fromCharCode(encodedAscii);
     }
-
-    //recorremos el texto y a cada caracter,
-    //console.log(string);
-    for (let i = 0; i < string.length; i++) {
-      console.log('este es el string que está llegando a la función encode en cipher.js: ' + string);
-      //ciframos el código ascii, lo parseamos a String y lo concatenamos con la cadena textoCifrado
-      textoCifrado += String.fromCharCode(string.charCodeAt([i]) + toAddNumber);
-
-    }
-    console.log('esto es textoCifrado proveniente de la función encode:  ' + textoCifrado);
-    return textoCifrado;
-
-
+    return encodedPhrase;
   },
 
-
-
   decode: (offset, string) => {
-    let toAddNumber = offset;
-    //rescatamos el valor de textoCifrado
-    let historiaCifrada = string;
-    //console.log('entra a la funcion decode');
-    let textoRevertido = '';
-    //tomamos el texto cifrado, lo recorremos y revertimos el valor ascii
-    console.log('esto es la historia cifrada que llega a decode en cipher.js: ' + '[' + historiaCifrada + ']');
-    for (let i = 0; i < historiaCifrada.length; i++) {
-      // extraemos el valor ascii de cada caracter cifrado y revertimos el valor restando el offset sumado
-      let valorCifradoRevertido = historiaCifrada.charCodeAt(i) - toAddNumber;
-      //convertimos ese valor ascii en el caracter correspondiente
-      let caracterRevertido = String.fromCharCode(valorCifradoRevertido);
-      //concatenamos el caracer revertido al textoRevertido
-      textoRevertido += caracterRevertido;
+    let offsetInput = offset;
+    //convertimos el offset en un número entero
+    offsetInput = parseInt(offsetInput);
+    let toDecipher = string;
+    let decodedPhrase = '';
+    let decodedAscii = null;
+    /* aplicamos la ecuación del cifrado César en reversa para descodificar cada caracter */
+
+    for (let m = 0; m < toDecipher.length; m++) {
+      decodedAscii = (toDecipher.charCodeAt(m) + 65 - offsetInput) % 26 + 65;
+      decodedPhrase += String.fromCharCode(decodedAscii);
     }
-    return textoRevertido;
+    return decodedPhrase;
   }
 };
