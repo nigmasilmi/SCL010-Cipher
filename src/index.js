@@ -20,7 +20,7 @@ const descifraBtn = document.getElementById('ejecutaDescifrado');
 
 descifraBtn.addEventListener('click', () => {
  
-    //tomamos el texto cifrado que se encuentra elemento cuyo Id es "textoCifrado"
+    //tomamos el texto cifrado que se encuentra en el elemento cuyo Id es "textoCifrado"
     let aDescifrar = document.getElementById('textoCifrado').value;
     //tomamos el valor del offset vigente
     offset = parseInt(document.getElementById('offsetInput').value);
