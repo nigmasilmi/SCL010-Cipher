@@ -11,16 +11,18 @@ Dado la cercanía en espacio con los demás jugadores (en una mesa, o el suelo o
 La aplicación web "TheMasterTool" ofrece una herramienta para esconder la historia del resto de jugadores en aquellos casos en los que el Master decida mostrar algún dibujo, alguna referencia histórica o algún contenido en su computadora o dispositivo móvil sin correr el riesgo de exponer a los demás jugadores a "spoilers" y sorpresas que resten emoción del juego.
 
 #### Definición del producto
-Por redactar
+Interfaz sencilla que permite cifrar una historia en preoceso de un juego de rol, para ocultarla de los jugadores o mostrarla al master del juego, controlando la visualización con los botones de cifrar y descifrar.
 #### Cómo descargar, instalar y ejecutar la aplicación
-Por redactar
+Aplicación web, que no requiere descargar, sólo ejecutar en un browser.
+De interacción directa y sencilla, el usuario inserta un texto, muestra o no a través del cifrado de su contenido.
+
 #### Interfaz de usuario (UI) y Decisiones de diseño
-Por redactar
+Diseño limpio, simple, colores asociados a los juegos de rol en gamas frías, entorno de tonos opacos para recordar el ambiente de cabernas y escudos en los que se ambienta imaginativamente un juego de rol.
 
 #### Arquitectura / Scripts / Archivos
-Por redactar
+Está basada en el _boilerplate_ inicial, con además una carpeta de imágenes conteniendo la imagen de wireframe y la imagen que sirve de logo para la la aplicación web,
 
-El _boilerplate_ como punto de partida 
+ _boilerplate_ 
 
 ```text
 ./
@@ -34,6 +36,7 @@ El _boilerplate_ como punto de partida
 │   ├── index.html
 │   ├── index.js
 │   └── style.css
+    └── imgs      
 └── test
     ├── cipher.spec.js
     ├── headless.js
@@ -44,42 +47,49 @@ El _boilerplate_ como punto de partida
 
 Diseño de experiencia de usuario (User Experience Design):
 Por redactar
-- Ideación
-- Prototipado (sketching)
+
 
 <img src="https://raw.githubusercontent.com/nigmasilmi/SCL010-Cipher/master/src/imgs/caesarCipher_Prototipado1-01.jpg" alt="Wireframe con iteraciones de desarrollo propuestas">
+
 - Testeo e Iteración
+No fue posible compaginar las condiciones iniciales del test con las funcionalidades extra para este sprint.
+Forma parte de las mejoras al producto.
 
 Desarrollo Front-end:
-Por redactar
+
 - Decisiones, herramientas, iteraciones, procesos
+Siguiendo los requerimientos del proyecto, con una estructura preestablecida, la versatilidad posible tuvo que ver meramente con el entorno visual y el acercamiento a la experimentación con la experiencia de usuario.
+
+Trasciende en la experiencia la necesidad de priorizar los tests unitarios desde las primeras etapas del desarrollo.
+
+Fue necesaria una investigación acerca de la aritmética modular y más específicamente acerca de las clases y equivalencias de congruencia, base de la ecuación del cifrado César aplicado en este proyecto.
 
 
 ## Checklist
 Tareas completadas
 
 ### Parte Obligatoria
-* [ ] `README.md` incluye info sobre proceso y decisiones de diseño.
-* [ ] `README.md` explica claramente quiénes son los usuarios y su relación con
+* [X] `README.md` incluye info sobre proceso y decisiones de diseño.
+* [X] `README.md` explica claramente quiénes son los usuarios y su relación con
   el producto.
-* [ ] `README.md` explica claramente cómo el producto soluciona los
+* [X] `README.md` explica claramente cómo el producto soluciona los
   problemas/necesidades de los usuarios.
-* [ ] Usa VanillaJS.
+* [X] Usa VanillaJS.
 * [X] No utiliza `this`.
 * [X] Implementa `cipher.encode`.
-* [ ] Implementa `cipher.decode`.
-* [ ] Pasa linter con configuración provista.
-* [ ] Pasa pruebas unitarias.
-* [ ] Pruebas unitarias cubren 70% de _statements_, _functions_ y _lines_, y un
+* [X] Implementa `cipher.decode`.
+* [X] Pasa linter con configuración provista.
+* [X] Pasa pruebas unitarias.
+* [X] Pruebas unitarias cubren 70% de _statements_, _functions_ y _lines_, y un
   mínimo del 50% de _branches_.
-* [ ] Interfaz permite elegir el `offset` o _desplazamiento_ a usar en el
+* [X] Interfaz permite elegir el `offset` o _desplazamiento_ a usar en el
   cifrado/descifrado.
-* [ ] Interfaz permite escribir un texto para ser cifrado.
-* [ ] Interfaz muestra el resultado del cifrado correctamente.
-* [ ] Interfaz permite escribir un texto para ser descifrado.
-* [ ] Interfaz muestra el resultado del descifrado correctamente.
+* [X] Interfaz permite escribir un texto para ser cifrado.
+* [X] Interfaz muestra el resultado del cifrado correctamente.
+* [X] Interfaz permite escribir un texto para ser descifrado.
+* [ ] Interfaz muestra / pero no correctamente, el resultado del descifrado.
 
 ### Parte Opcional: "Hacker edition"
-* [ ] Cifra/descifra minúsculas
-* [ ] Cifra/descifra _otros_ caracteres (espacios, puntuación, `ñ`, `á`, ...)
-* [ ] Permite usar un `offset` negativo.
+* [X] Cifra/a veces descifra minúsculas
+* [X] Cifra/no descifra _otros_ caracteres (espacios, puntuación, `ñ`, `á`, ...)
+* [ ] Permite usar / no descifra con un `offset` negativo.

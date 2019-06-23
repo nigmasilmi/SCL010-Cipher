@@ -5,6 +5,7 @@ window.cipher = {
     //convertimos el offset en un número entero
     offsetInput = parseInt(offsetInput);
 
+
     /*obtenemos los valores ascii del string rescatado desde el DOM ingresado previamente por el usuario
      almacenándolo en un array*/
 
@@ -16,21 +17,39 @@ window.cipher = {
     let encodedAscii = '';
     for (let m = 0; m < strInputInAscii.length; m++) {
 
-     // Caso Mayúsculas: aplicamos la ecuación del cifrado César para codificar cada caracter 
-      if (strInputInAscii[m] > 64 && strInputInAscii[m] < 91) {
+      // Caso Mayúsculas: aplicamos la ecuación del cifrado César para codificar cada caracter 
+      if (strInputInAscii[m] >= 65 && strInputInAscii[m] <= 90) {
+        while (offsetInput > 26  && offsetInput !== 33) {
+          offsetInput = Math.floor(offsetInput / 27 + offsetInput % 27);
+        }
         encodedAscii = (strInputInAscii[m] - 65 + offsetInput) % 26 + 65;
         encodedPhrase += String.fromCharCode(encodedAscii);
 
-    // Caso Minúsculas: aplicamos la ecuación del cifrado César para codificar cada caracter */
+        // Caso Minúsculas: aplicamos la ecuación del cifrado César para codificar cada caracter */
+
       } else if (strInputInAscii[m] >= 97 && strInputInAscii[m] <= 122) {
+        while (offsetInput > 26  && offsetInput !== 33) {
+          offsetInput = Math.floor(offsetInput / 27 + offsetInput % 27);
+        }
         encodedAscii = (strInputInAscii[m] - 97 + offsetInput) % 26 + 97;
+        encodedPhrase += String.fromCharCode(encodedAscii);
+        //Caracteres especiales
+
+      } else if (strInputInAscii[m] >= 32 && strInputInAscii[m] <= 64) {
+        if(strInputInAscii[m]==32){
+          encodedAscii = 32;
+        }
+        while (offsetInput > 32  && offsetInput !== 33 && offsetInput !== 32) {
+          offsetInput = Math.floor(offsetInput / 33 + offsetInput % 33);
+        }
+        encodedAscii = (strInputInAscii[m] - 32 + offsetInput) % 33 + 32;
         encodedPhrase += String.fromCharCode(encodedAscii);
 
       }
 
     }
     return encodedPhrase;
-    
+
   },
 
   decode: (offset, string) => {
@@ -41,28 +60,46 @@ window.cipher = {
     let decodedPhrase = '';
     let decodedAscii = null;
     let descipherArr = [];
-    let pruebaArray = [];
 
     //obtenemos los valores ascii del texto cifrado rescatado desde el DOM almacenándolo en un array
-    for(let i=0; i<toDecipher.length; i++){
+    for (let i = 0; i < toDecipher.length; i++) {
       descipherArr.push(toDecipher[i].charCodeAt());
     }
     for (let m = 0; m < descipherArr.length; m++) {
 
-      //Caso Mayúsculas: aplicamos la ecuación del cifrado César en reversa para descodificar cada caracter 
-      if (descipherArr[m] > 64 && descipherArr[m] < 91) {
+      //Caso Mayúsculas: aplicamos la ecuación del cifrado César en reversa para decodificar cada caracter 
+      if (descipherArr[m] >= 65 && descipherArr[m] <= 90) {
+        while (offsetInput > 26  && offsetInput !== 33) {
+          offsetInput = Math.floor(offsetInput / 27 + offsetInput % 27);
+        }
         decodedAscii = (descipherArr[m] + 65 - offsetInput) % 26 + 65;
         decodedPhrase += String.fromCharCode(decodedAscii);
 
-      // Caso Minúsculas: aplicamos la ecuación del cifrado César en reversa para descodificar cada caracter 
+
+        // Caso Minúsculas: aplicamos la ecuación del cifrado César en reversa para decodificar cada caracter 
       } else if (descipherArr[m] >= 97 && descipherArr[m] <= 122) {
+        while (offsetInput > 26 && offsetInput !== 33) {
+          offsetInput = Math.floor(offsetInput / 27 + offsetInput % 27);
+        }
         decodedAscii = (descipherArr[m] + 97 + offsetInput) % 26 + 97;
         decodedPhrase += String.fromCharCode(decodedAscii);
-        pruebaArray.push(decodedAscii);
+
+         
+        // Caso caracteres especiales con códgo ascii de 32-64: 
+      } else if (descipherArr[m] >= 32 && descipherArr[m] <= 64) {
+       
+        while (offsetInput > 33  && offsetInput !== 33 && offsetInput !== 32)  {
+          offsetInput = Math.floor(offsetInput / 33 + offsetInput % 33);
+        }
+
+        decodedAscii = (descipherArr[m] + 32 - offsetInput) % 33 + 34;
+        if(descipherArr[m]==32){
+          decodedAscii = 32;
+        }
+        decodedPhrase += String.fromCharCode(decodedAscii);
       }
     }
-
     return decodedPhrase;
   }
- 
+
 };

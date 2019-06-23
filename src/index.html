@@ -11,23 +11,15 @@
 <body>
 
   <div id="root">
-    <nav class="navega">
-      <ul>
-        <li>Inicio</li>
-        <li>Crear Historia</li>
-        <li>Escoger Historia</li>
 
-      </ul>
-
-    </nav>
     <div id="logo">
       <img src="imgs/TheMasterTool_Logo2.png" alt="The Master Tool - Logo">
     </div>
 
-    <label for="textoACifrar">Historia</label>
     <div id="textoACifrar" class="frames">
-
-      <label for="mensajeInputId">Ingresa tu propia historia</label>
+      <h3>No más Spoilers, Master. Usa las cajas de texto para esconder tus apuntes, resultados y decisiones de tu juego
+      </h3>
+      <label for="mensajeInputId">Escribe acá lo que quieres cifrar </label>
       <textarea rows="4" cols="50" name="mensajeIngresado" id="mensajeInputId"></textarea><br />
       <label for="offsetInput">Ingresa el número secreto para tu cifrado</label>
       <input type="number" id="offsetInput">
@@ -42,12 +34,13 @@
 
     <label for="textoDescifrado">Historia Descifrada</label>
     <textarea rows="4" cols="50" name="mensajeDescifrado" id="textoDescifrado" class="frames" readonly></textarea>
+    
   </div>
- 
-  <script src="index.js"></script>
-  <script src="cipher.js"></script>
 
 
+
+    <script src="index.js"></script>
+    <script src="cipher.js"></script>
 </body>
 
 </html>
