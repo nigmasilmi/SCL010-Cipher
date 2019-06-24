@@ -1,4 +1,4 @@
-# RGP TheMasterTool
+# RPG TheMasterTool
 
 
 #### Justificación y contexto de la aplicación
